@@ -127,10 +127,10 @@ async function setup() {
     textAlign(CENTER, CENTER);
     noStroke();
 
-    stim1 = await loadImage('/imag/stim-1.png');
-    stim2 = await loadImage('/imag/stim-2.png');
-    stim3 = await loadImage('/imag/stim-3.png');
-    stim4 = await loadImage('/imag/stim-4.png');
+    stim1 = await loadImage('imag/stim-1.png');
+    stim2 = await loadImage('imag/stim-2.png');
+    stim3 = await loadImage('imag/stim-3.png');
+    stim4 = await loadImage('imag/stim-4.png');
 
     imagesLoaded = true;
     
@@ -710,7 +710,7 @@ function drawImagePage(img, title) {
         }
         
         const x = width / 2 - imgDisplayWidth / 2;
-        const y = 200 + (maxHeight - imgDisplayHeight) / 2;
+        const y = 120 + (maxHeight - imgDisplayHeight) / 2;
         
         // DIBUJAR CON ROTACIÓN SI ESTÁ CONFIGURADA
         push();
@@ -1107,9 +1107,9 @@ function handleImage(loadedImg) {
 function handleTouchStart(event) {
     if (event.touches.length !== 1) return;
 
-    const rect = event.currentTarget.getBoundingClientRect();
-    swipeStartX = event.touches[0].clientX - rect.left;
-    swipeStartY = event.touches[0].clientY - rect.top;
+    const ect = event.currentTarget.getBoundingClientRect();
+    swipeStartX = event.touches[0].clientX - ect.left;
+    swipeStartY = event.touches[0].clientY - ect.top;
     swipeDetected = false;
 
     touchOnControl =
@@ -1139,9 +1139,9 @@ function handleTouchEnd(event) {
     if (event.changedTouches.length !== 1) return;
     if (touchOnControl) return;
 
-    const rect = event.currentTarget.getBoundingClientRect();
-    const endX = event.changedTouches[0].clientX - rect.left;
-    const endY = event.changedTouches[0].clientY - rect.top;
+    const ect = event.currentTarget.getBoundingClientRect();
+    const endX = event.changedTouches[0].clientX - ect.left;
+    const endY = event.changedTouches[0].clientY - ect.top;
 
     const diffX = swipeStartX - endX;
     const diffY = Math.abs(swipeStartY - endY);
